@@ -18,7 +18,7 @@ class Program {
         double quantia;
         if (resposta == 's' || resposta == 'S') {
             Console.Write("Entre com um valor para depósito: ");
-            quantia = double.Parse(Console.ReadLine());
+            quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             conta = new ContaBancaria(numero, titular, quantia);
         } else {
@@ -28,13 +28,13 @@ class Program {
         Console.WriteLine("\n"+conta);
 
         Console.Write("\nEntre com um valor para depósito: ");
-        quantia = double.Parse(Console.ReadLine());
+        quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
         conta.Deposito(quantia);
         Console.WriteLine("\nDados atualizados: ");
         Console.WriteLine(conta);
 
         Console.Write("\nEntre com um valor para saque: ");
-        quantia = double.Parse(Console.ReadLine());
+        quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
         conta.Saque(quantia);
         Console.WriteLine("\nDados atualizados: ");
         Console.WriteLine(conta);
