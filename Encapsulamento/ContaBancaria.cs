@@ -22,6 +22,14 @@ namespace Encapsulamento
             _saldo = saldo;
         }
 
+        public void Deposito(double quantia) {
+            _saldo += quantia;
+        }
+
+        public void Saque(double quantia) {
+            _saldo -= quantia + 5;
+        }
+
         public override string ToString()
         {
             return "Conta "
@@ -29,7 +37,7 @@ namespace Encapsulamento
             + ", Titular: "
             + _titular
             + ", Saldo: $"
-            + _saldo.ToString("F2", CultureInfo.InvariantCulture);
+            + _saldo.ToString("F2");
         }
     }
 }

@@ -7,8 +7,6 @@ class Program {
     
         ContaBancaria conta;
 
-        Console.WriteLine("Informe os dados da conta:");
-
         Console.Write("Entre com o número da conta: ");
         int numero = int.Parse(Console.ReadLine());
 
@@ -17,15 +15,29 @@ class Program {
 
         Console.Write("Haverá depósito inicial (s/n)? ");
         char resposta = Console.ReadLine()[0];
+        double quantia;
         if (resposta == 's' || resposta == 'S') {
             Console.Write("Entre com um valor para depósito: ");
-            double deposito = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            quantia = double.Parse(Console.ReadLine());
 
-            conta = new ContaBancaria(numero, titular, deposito);
+            conta = new ContaBancaria(numero, titular, quantia);
         } else {
             conta = new ContaBancaria(numero, titular);
         }
 
+        Console.WriteLine("\n"+conta);
+
+        Console.Write("\nEntre com um valor para depósito: ");
+        quantia = double.Parse(Console.ReadLine());
+        conta.Deposito(quantia);
+        Console.WriteLine("\nDados atualizados: ");
         Console.WriteLine(conta);
+
+        Console.Write("\nEntre com um valor para saque: ");
+        quantia = double.Parse(Console.ReadLine());
+        conta.Saque(quantia);
+        Console.WriteLine("\nDados atualizados: ");
+        Console.WriteLine(conta);
+        
     }
 }
